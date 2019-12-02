@@ -683,7 +683,7 @@ GROUP BY Region;
 -- | 1995 |    12 | UNITED STATES  |             651 |
 -- | 1995 |    12 | VIETNAM        |             753 |
 -- +------+-------+----------------+-----------------+
--- 300 rows in set (12.56 sec)
+-- 300 rows in set (11.17 sec)
 -- +------+----------------+----------+
 -- | Year | Nation         | Year_AVG |
 -- +------+----------------+----------+
@@ -713,7 +713,82 @@ GROUP BY Region;
 -- | 1995 | UNITED STATES  | 682.3333 |
 -- | 1995 | VIETNAM        | 683.4167 |
 -- +------+----------------+----------+
--- 25 rows in set (12.57 sec)
+-- 25 rows in set (11.00 sec)
+-- +------+-------+-------------+-----------------+
+-- | Year | Month | Region      | Num_of_Customer |
+-- +------+-------+-------------+-----------------+
+-- | 1995 |     1 | AFRICA      |            3533 |
+-- | 1995 |     1 | AMERICA     |            3536 |
+-- | 1995 |     1 | ASIA        |            3448 |
+-- | 1995 |     1 | EUROPE      |            3513 |
+-- | 1995 |     1 | MIDDLE EAST |            3495 |
+-- | 1995 |     2 | AFRICA      |            3225 |
+-- | 1995 |     2 | AMERICA     |            3266 |
+-- | 1995 |     2 | ASIA        |            3177 |
+-- | 1995 |     2 | EUROPE      |            3242 |
+-- | 1995 |     2 | MIDDLE EAST |            3206 |
+-- | 1995 |     3 | AFRICA      |            3484 |
+-- | 1995 |     3 | AMERICA     |            3466 |
+-- | 1995 |     3 | ASIA        |            3458 |
+-- | 1995 |     3 | EUROPE      |            3472 |
+-- | 1995 |     3 | MIDDLE EAST |            3453 |
+-- | 1995 |     4 | AFRICA      |            3495 |
+-- | 1995 |     4 | AMERICA     |            3378 |
+-- | 1995 |     4 | ASIA        |            3344 |
+-- | 1995 |     4 | EUROPE      |            3504 |
+-- | 1995 |     4 | MIDDLE EAST |            3312 |
+-- | 1995 |     5 | AFRICA      |            3420 |
+-- | 1995 |     5 | AMERICA     |            3502 |
+-- | 1995 |     5 | ASIA        |            3549 |
+-- | 1995 |     5 | EUROPE      |            3457 |
+-- | 1995 |     5 | MIDDLE EAST |            3471 |
+-- | 1995 |     6 | AFRICA      |            3485 |
+-- | 1995 |     6 | AMERICA     |            3410 |
+-- | 1995 |     6 | ASIA        |            3322 |
+-- | 1995 |     6 | EUROPE      |            3496 |
+-- | 1995 |     6 | MIDDLE EAST |            3326 |
+-- | 1995 |     7 | AFRICA      |            3457 |
+-- | 1995 |     7 | AMERICA     |            3483 |
+-- | 1995 |     7 | ASIA        |            3551 |
+-- | 1995 |     7 | EUROPE      |            3623 |
+-- | 1995 |     7 | MIDDLE EAST |            3412 |
+-- | 1995 |     8 | AFRICA      |            3588 |
+-- | 1995 |     8 | AMERICA     |            3480 |
+-- | 1995 |     8 | ASIA        |            3451 |
+-- | 1995 |     8 | EUROPE      |            3479 |
+-- | 1995 |     8 | MIDDLE EAST |            3537 |
+-- | 1995 |     9 | AFRICA      |            3346 |
+-- | 1995 |     9 | AMERICA     |            3378 |
+-- | 1995 |     9 | ASIA        |            3400 |
+-- | 1995 |     9 | EUROPE      |            3390 |
+-- | 1995 |     9 | MIDDLE EAST |            3408 |
+-- | 1995 |    10 | AFRICA      |            3513 |
+-- | 1995 |    10 | AMERICA     |            3535 |
+-- | 1995 |    10 | ASIA        |            3501 |
+-- | 1995 |    10 | EUROPE      |            3575 |
+-- | 1995 |    10 | MIDDLE EAST |            3465 |
+-- | 1995 |    11 | AFRICA      |            3372 |
+-- | 1995 |    11 | AMERICA     |            3288 |
+-- | 1995 |    11 | ASIA        |            3431 |
+-- | 1995 |    11 | EUROPE      |            3438 |
+-- | 1995 |    11 | MIDDLE EAST |            3365 |
+-- | 1995 |    12 | AFRICA      |            3449 |
+-- | 1995 |    12 | AMERICA     |            3394 |
+-- | 1995 |    12 | ASIA        |            3540 |
+-- | 1995 |    12 | EUROPE      |            3448 |
+-- | 1995 |    12 | MIDDLE EAST |            3422 |
+-- +------+-------+-------------+-----------------+
+-- 60 rows in set (11.05 sec)
+-- +------+-------------+-----------+----------------------+
+-- | Year | Region      | Year_AVG  | # of total customers |
+-- +------+-------------+-----------+----------------------+
+-- | 1995 | AFRICA      | 3447.2500 |                41367 |
+-- | 1995 | AMERICA     | 3426.3333 |                41116 |
+-- | 1995 | ASIA        | 3431.0000 |                41172 |
+-- | 1995 | EUROPE      | 3469.7500 |                41637 |
+-- | 1995 | MIDDLE EAST | 3406.0000 |                40872 |
+-- +------+-------------+-----------+----------------------+
+-- 5 rows in set (11.28 sec)
 
 -- query 4
 DROP VIEW IF EXISTS view_4_0;
@@ -757,7 +832,7 @@ GROUP BY v1.Region;
 -- Query 5 --
 
 -- GIVEN Query
-SELECT c.Region, COUNT(*)
+SELECT c.Region, COUNT(*) AS '# of Sales by region for 1995'
 FROM Sales s, Customer c, Time t
 WHERE s.TimeKey = t.TimeKey
 AND s.CustKey = c.CustKey
@@ -773,27 +848,7 @@ GROUP BY c.Region;
 -- | EUROPE      |   184384 |
 -- | MIDDLE EAST |   180406 |
 -- +-------------+----------+
--- 5 rows in set (1 min 5.18 sec)
-
-SELECT Region, COUNT(*) AS 'Number of Sales by region for 1995'
-FROM Customer c
-RIGHT JOIN (
-  SELECT SalesKey, CustKey FROM Sales s
-  LEFT JOIN Time t ON t.TimeKey=s.TimeKey
-  WHERE Year = 1995
-) ST ON ST.CustKey = c.CustKey
-GROUP BY Region;
-
--- +-------------+----------+
--- | Region      | COUNT(*) |
--- +-------------+----------+
--- | AFRICA      |   182687 |
--- | AMERICA     |   182865 |
--- | ASIA        |   183585 |
--- | EUROPE      |   184384 |
--- | MIDDLE EAST |   180406 |
--- +-------------+----------+
--- 5 rows in set (11.55 sec)
+-- 5 rows in set (10.00 sec)
 
 -- query 6
 -- +----------------+----------+
@@ -823,11 +878,11 @@ AND (c.Region='AMERICA' OR c.Region='ASIA');
 
 -- Additional Method for Query 7
 
-SELECT COUNT(*) AS 'Number of sales in America and Asia for 1994'
-FROM Sales s
-LEFT JOIN Customer c ON s.CustKey = c.CustKey
-WHERE YEAR(FROM_DAYS(s.TimeKey))=1994 AND
-(c.Region = 'AMERICA' OR c.Region = 'ASIA');
+-- SELECT COUNT(*) AS 'Number of sales in America and Asia for 1994'
+-- FROM Sales s
+-- LEFT JOIN Customer c ON s.CustKey = c.CustKey
+-- WHERE YEAR(FROM_DAYS(s.TimeKey))=1994 AND
+-- (c.Region = 'AMERICA' OR c.Region = 'ASIA');
 -- +----------+e
 -- | COUNT(*) |
 -- +----------+
