@@ -3,6 +3,11 @@ create database tpcholtp;
 use tpcholtp;
 source ~/CS346cwk/tpch.sql;
 
+
+
+
+
+
 -- Import Data from the .txt files --
 LOAD DATA INFILE '~/CS346cwk/tpch-files/supplier.txt' INTO TABLE supplier FIELDS TERMINATED BY ','  OPTIONALLY ENCLOSED BY '"'  LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 LOAD DATA INFILE '~/CS346cwk/tpch-files/customer.txt' INTO TABLE customer FIELDS TERMINATED BY ','  OPTIONALLY ENCLOSED BY '"'  LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
