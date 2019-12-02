@@ -1,0 +1,337 @@
+-- query 2
+DROP VIEW IF EXISTS view_1;
+CREATE VIEW view_1 AS
+SELECT count(P.ProductKey) AS product_num, T.Year,C.Nation
+FROM Sales S
+LEFT JOIN Product P ON P.ProductKey=S.ProductKey
+LEFT JOIN Time T ON T.TimeKey=S.TimeKey
+LEFT JOIN Customer C ON C.CustKey=S.CustKey
+GROUP BY T.Year,C.Nation ASC;
+
++-------------+------+----------------+
+| product_num | Year | Nation         |
++-------------+------+----------------+
+|       36375 | 1992 | ALGERIA        |
+|       35797 | 1992 | ARGENTINA      |
+|       36338 | 1992 | BRAZIL         |
+|       36605 | 1992 | CANADA         |
+|       36905 | 1992 | CHINA          |
+|       35166 | 1992 | EGYPT          |
+|       36457 | 1992 | ETHIOPIA       |
+|       37569 | 1992 | FRANCE         |
+|       36189 | 1992 | GERMANY        |
+|       36377 | 1992 | INDIA          |
+|       37760 | 1992 | INDONESIA      |
+|       35219 | 1992 | IRAN           |
+|       35869 | 1992 | IRAQ           |
+|       35645 | 1992 | JAPAN          |
+|       37084 | 1992 | JORDAN         |
+|       35570 | 1992 | KENYA          |
+|       36049 | 1992 | MOROCCO        |
+|       37317 | 1992 | MOZAMBIQUE     |
+|       35889 | 1992 | PERU           |
+|       36561 | 1992 | ROMANIA        |
+|       37140 | 1992 | RUSSIA         |
+|       35166 | 1992 | SAUDI ARABIA   |
+|       35994 | 1992 | UNITED KINGDOM |
+|       36285 | 1992 | UNITED STATES  |
+|       36668 | 1992 | VIETNAM        |
+|       35954 | 1993 | ALGERIA        |
+|       36089 | 1993 | ARGENTINA      |
+|       36793 | 1993 | BRAZIL         |
+|       37632 | 1993 | CANADA         |
+|       36633 | 1993 | CHINA          |
+|       36063 | 1993 | EGYPT          |
+|       36040 | 1993 | ETHIOPIA       |
+|       36170 | 1993 | FRANCE         |
+|       36219 | 1993 | GERMANY        |
+|       36339 | 1993 | INDIA          |
+|       36130 | 1993 | INDONESIA      |
+|       36813 | 1993 | IRAN           |
+|       35271 | 1993 | IRAQ           |
+|       35761 | 1993 | JAPAN          |
+|       37007 | 1993 | JORDAN         |
+|       36179 | 1993 | KENYA          |
+|       35898 | 1993 | MOROCCO        |
+|       37393 | 1993 | MOZAMBIQUE     |
+|       35818 | 1993 | PERU           |
+|       37259 | 1993 | ROMANIA        |
+|       37261 | 1993 | RUSSIA         |
+|       34686 | 1993 | SAUDI ARABIA   |
+|       36034 | 1993 | UNITED KINGDOM |
+|       36103 | 1993 | UNITED STATES  |
+|       36693 | 1993 | VIETNAM        |
+|       36516 | 1994 | ALGERIA        |
+|       36245 | 1994 | ARGENTINA      |
+|       36333 | 1994 | BRAZIL         |
+|       36692 | 1994 | CANADA         |
+|       37305 | 1994 | CHINA          |
+|       35729 | 1994 | EGYPT          |
+|       36497 | 1994 | ETHIOPIA       |
+|       37687 | 1994 | FRANCE         |
+|       36173 | 1994 | GERMANY        |
+|       36471 | 1994 | INDIA          |
+|       37756 | 1994 | INDONESIA      |
+|       36110 | 1994 | IRAN           |
+|       35893 | 1994 | IRAQ           |
+|       35856 | 1994 | JAPAN          |
+|       36536 | 1994 | JORDAN         |
+|       35552 | 1994 | KENYA          |
+|       35625 | 1994 | MOROCCO        |
+|       36433 | 1994 | MOZAMBIQUE     |
+|       35614 | 1994 | PERU           |
+|       36791 | 1994 | ROMANIA        |
+|       37729 | 1994 | RUSSIA         |
+|       35724 | 1994 | SAUDI ARABIA   |
+|       36191 | 1994 | UNITED KINGDOM |
+|       36367 | 1994 | UNITED STATES  |
+|       36694 | 1994 | VIETNAM        |
+|       36715 | 1995 | ALGERIA        |
+|       36703 | 1995 | ARGENTINA      |
+|       36618 | 1995 | BRAZIL         |
+|       37076 | 1995 | CANADA         |
+|       36469 | 1995 | CHINA          |
+|       36167 | 1995 | EGYPT          |
+|       36650 | 1995 | ETHIOPIA       |
+|       37341 | 1995 | FRANCE         |
+|       36279 | 1995 | GERMANY        |
+|       36842 | 1995 | INDIA          |
+|       37746 | 1995 | INDONESIA      |
+|       36458 | 1995 | IRAN           |
+|       35023 | 1995 | IRAQ           |
+|       36067 | 1995 | JAPAN          |
+|       36800 | 1995 | JORDAN         |
+|       35818 | 1995 | KENYA          |
+|       36457 | 1995 | MOROCCO        |
+|       37047 | 1995 | MOZAMBIQUE     |
+|       35902 | 1995 | PERU           |
+|       36961 | 1995 | ROMANIA        |
+|       37226 | 1995 | RUSSIA         |
+|       35958 | 1995 | SAUDI ARABIA   |
+|       36577 | 1995 | UNITED KINGDOM |
+|       36566 | 1995 | UNITED STATES  |
+|       36461 | 1995 | VIETNAM        |
+|       36219 | 1996 | ALGERIA        |
+|       36264 | 1996 | ARGENTINA      |
+|       36935 | 1996 | BRAZIL         |
+|       36465 | 1996 | CANADA         |
+|       36954 | 1996 | CHINA          |
+|       36445 | 1996 | EGYPT          |
+|       36541 | 1996 | ETHIOPIA       |
+|       38253 | 1996 | FRANCE         |
+|       36920 | 1996 | GERMANY        |
+|       35515 | 1996 | INDIA          |
+|       37431 | 1996 | INDONESIA      |
+|       35942 | 1996 | IRAN           |
+|       36520 | 1996 | IRAQ           |
+|       36397 | 1996 | JAPAN          |
+|       37684 | 1996 | JORDAN         |
+|       35470 | 1996 | KENYA          |
+|       36744 | 1996 | MOROCCO        |
+|       37073 | 1996 | MOZAMBIQUE     |
+|       36147 | 1996 | PERU           |
+|       37465 | 1996 | ROMANIA        |
+|       37378 | 1996 | RUSSIA         |
+|       35347 | 1996 | SAUDI ARABIA   |
+|       35703 | 1996 | UNITED KINGDOM |
+|       36415 | 1996 | UNITED STATES  |
+|       37264 | 1996 | VIETNAM        |
+|       36551 | 1997 | ALGERIA        |
+|       36495 | 1997 | ARGENTINA      |
+|       36773 | 1997 | BRAZIL         |
+|       36104 | 1997 | CANADA         |
+|       36607 | 1997 | CHINA          |
+|       35479 | 1997 | EGYPT          |
+|       35603 | 1997 | ETHIOPIA       |
+|       37424 | 1997 | FRANCE         |
+|       35416 | 1997 | GERMANY        |
+|       35741 | 1997 | INDIA          |
+|       37447 | 1997 | INDONESIA      |
+|       36465 | 1997 | IRAN           |
+|       36092 | 1997 | IRAQ           |
+|       36870 | 1997 | JAPAN          |
+|       37098 | 1997 | JORDAN         |
+|       36051 | 1997 | KENYA          |
+|       36057 | 1997 | MOROCCO        |
+|       36987 | 1997 | MOZAMBIQUE     |
+|       35985 | 1997 | PERU           |
+|       37268 | 1997 | ROMANIA        |
+|       36769 | 1997 | RUSSIA         |
+|       35694 | 1997 | SAUDI ARABIA   |
+|       35264 | 1997 | UNITED KINGDOM |
+|       37520 | 1997 | UNITED STATES  |
+|       36259 | 1997 | VIETNAM        |
+|       21273 | 1998 | ALGERIA        |
+|       20853 | 1998 | ARGENTINA      |
+|       21317 | 1998 | BRAZIL         |
+|       21432 | 1998 | CANADA         |
+|       21653 | 1998 | CHINA          |
+|       20903 | 1998 | EGYPT          |
+|       21199 | 1998 | ETHIOPIA       |
+|       21971 | 1998 | FRANCE         |
+|       21868 | 1998 | GERMANY        |
+|       21682 | 1998 | INDIA          |
+|       21863 | 1998 | INDONESIA      |
+|       21615 | 1998 | IRAN           |
+|       21132 | 1998 | IRAQ           |
+|       21174 | 1998 | JAPAN          |
+|       21946 | 1998 | JORDAN         |
+|       20707 | 1998 | KENYA          |
+|       21020 | 1998 | MOROCCO        |
+|       22298 | 1998 | MOZAMBIQUE     |
+|       21166 | 1998 | PERU           |
+|       21657 | 1998 | ROMANIA        |
+|       21733 | 1998 | RUSSIA         |
+|       20746 | 1998 | SAUDI ARABIA   |
+|       21637 | 1998 | UNITED KINGDOM |
+|       21103 | 1998 | UNITED STATES  |
+|       21079 | 1998 | VIETNAM        |
++-------------+------+----------------+
+175 rows in set (12.32 sec)
+
+SELECT v2.Year,v2.Nation,v2.product_num,
+  concat(round(COALESCE(( (v2.product_num-v1.product_num)/v2.product_num * 100 ),0),2),'%') AS inc_or_dec_percentage
+FROM view_1 v1,view_1 v2
+WHERE v1.Year=v2.Year-1 AND v1.Nation=v2.Nation AND v2.Year>=1992 AND v2.Year<=1995;
+
+-- output
++------+----------------+-------------+-----------------------+
+| Year | Nation         | product_num | inc_or_dec_percentage |
++------+----------------+-------------+-----------------------+
+| 1993 | ALGERIA        |       35954 | -1.17%                |
+| 1993 | ARGENTINA      |       36089 | 0.81%                 |
+| 1993 | BRAZIL         |       36793 | 1.24%                 |
+| 1993 | CANADA         |       37632 | 2.73%                 |
+| 1993 | CHINA          |       36633 | -0.74%                |
+| 1993 | EGYPT          |       36063 | 2.49%                 |
+| 1993 | ETHIOPIA       |       36040 | -1.16%                |
+| 1993 | FRANCE         |       36170 | -3.87%                |
+| 1993 | GERMANY        |       36219 | 0.08%                 |
+| 1993 | INDIA          |       36339 | -0.10%                |
+| 1993 | INDONESIA      |       36130 | -4.51%                |
+| 1993 | IRAN           |       36813 | 4.33%                 |
+| 1993 | IRAQ           |       35271 | -1.70%                |
+| 1993 | JAPAN          |       35761 | 0.32%                 |
+| 1993 | JORDAN         |       37007 | -0.21%                |
+| 1993 | KENYA          |       36179 | 1.68%                 |
+| 1993 | MOROCCO        |       35898 | -0.42%                |
+| 1993 | MOZAMBIQUE     |       37393 | 0.20%                 |
+| 1993 | PERU           |       35818 | -0.20%                |
+| 1993 | ROMANIA        |       37259 | 1.87%                 |
+| 1993 | RUSSIA         |       37261 | 0.32%                 |
+| 1993 | SAUDI ARABIA   |       34686 | -1.38%                |
+| 1993 | UNITED KINGDOM |       36034 | 0.11%                 |
+| 1993 | UNITED STATES  |       36103 | -0.50%                |
+| 1993 | VIETNAM        |       36693 | 0.07%                 |
+| 1994 | ALGERIA        |       36516 | 1.54%                 |
+| 1994 | ARGENTINA      |       36245 | 0.43%                 |
+| 1994 | BRAZIL         |       36333 | -1.27%                |
+| 1994 | CANADA         |       36692 | -2.56%                |
+| 1994 | CHINA          |       37305 | 1.80%                 |
+| 1994 | EGYPT          |       35729 | -0.93%                |
+| 1994 | ETHIOPIA       |       36497 | 1.25%                 |
+| 1994 | FRANCE         |       37687 | 4.03%                 |
+| 1994 | GERMANY        |       36173 | -0.13%                |
+| 1994 | INDIA          |       36471 | 0.36%                 |
+| 1994 | INDONESIA      |       37756 | 4.31%                 |
+| 1994 | IRAN           |       36110 | -1.95%                |
+| 1994 | IRAQ           |       35893 | 1.73%                 |
+| 1994 | JAPAN          |       35856 | 0.26%                 |
+| 1994 | JORDAN         |       36536 | -1.29%                |
+| 1994 | KENYA          |       35552 | -1.76%                |
+| 1994 | MOROCCO        |       35625 | -0.77%                |
+| 1994 | MOZAMBIQUE     |       36433 | -2.63%                |
+| 1994 | PERU           |       35614 | -0.57%                |
+| 1994 | ROMANIA        |       36791 | -1.27%                |
+| 1994 | RUSSIA         |       37729 | 1.24%                 |
+| 1994 | SAUDI ARABIA   |       35724 | 2.91%                 |
+| 1994 | UNITED KINGDOM |       36191 | 0.43%                 |
+| 1994 | UNITED STATES  |       36367 | 0.73%                 |
+| 1994 | VIETNAM        |       36694 | 0.00%                 |
+| 1995 | ALGERIA        |       36715 | 0.54%                 |
+| 1995 | ARGENTINA      |       36703 | 1.25%                 |
+| 1995 | BRAZIL         |       36618 | 0.78%                 |
+| 1995 | CANADA         |       37076 | 1.04%                 |
+| 1995 | CHINA          |       36469 | -2.29%                |
+| 1995 | EGYPT          |       36167 | 1.21%                 |
+| 1995 | ETHIOPIA       |       36650 | 0.42%                 |
+| 1995 | FRANCE         |       37341 | -0.93%                |
+| 1995 | GERMANY        |       36279 | 0.29%                 |
+| 1995 | INDIA          |       36842 | 1.01%                 |
+| 1995 | INDONESIA      |       37746 | -0.03%                |
+| 1995 | IRAN           |       36458 | 0.95%                 |
+| 1995 | IRAQ           |       35023 | -2.48%                |
+| 1995 | JAPAN          |       36067 | 0.59%                 |
+| 1995 | JORDAN         |       36800 | 0.72%                 |
+| 1995 | KENYA          |       35818 | 0.74%                 |
+| 1995 | MOROCCO        |       36457 | 2.28%                 |
+| 1995 | MOZAMBIQUE     |       37047 | 1.66%                 |
+| 1995 | PERU           |       35902 | 0.80%                 |
+| 1995 | ROMANIA        |       36961 | 0.46%                 |
+| 1995 | RUSSIA         |       37226 | -1.35%                |
+| 1995 | SAUDI ARABIA   |       35958 | 0.65%                 |
+| 1995 | UNITED KINGDOM |       36577 | 1.06%                 |
+| 1995 | UNITED STATES  |       36566 | 0.54%                 |
+| 1995 | VIETNAM        |       36461 | -0.64%                |
++------+----------------+-------------+-----------------------+
+75 rows in set (20.95 sec)
+
+-- query 4
+DROP VIEW IF EXISTS view_4_0;
+CREATE VIEW view_4_0 AS
+SELECT P.ProductKey,C.Region,T.Quarter
+FROM Sales S
+LEFT JOIN Product P ON P.ProductKey=S.ProductKey
+LEFT JOIN Time T ON T.TimeKey=S.TimeKey
+LEFT JOIN Customer C ON C.CustKey=S.CustKey
+WHERE T.Year=1993;
+
+DROP VIEW IF EXISTS view_4_1;
+CREATE VIEW view_4_1 AS
+SELECT ProductKey,Region,Quarter
+FROM view_4_0 WHERE Quarter=3 OR Quarter=4;
+
+DROP VIEW IF EXISTS view_4_2;
+CREATE VIEW view_4_2 AS
+SELECT ProductKey,Region,Quarter
+FROM view_4_0 WHERE Quarter=1 OR Quarter=2;
+
+SELECT v1.Region,count(v1.ProductKey) AS product_num
+FROM view_4_1 v1 LEFT JOIN view_4_2 v2
+ON v1.ProductKey=v2.ProductKey
+WHERE v2.ProductKey IS NULL
+GROUP BY v1.Region;
+
+-- output
++--------------------+
+| Tables_in_tpcholap |
++--------------------+
+| Customer           |
+| Product            |
+| Sales              |
+| Time               |
+| view_1             |
+| view_4_0           |
+| view_4_1           |
+| view_4_2           |
++--------------------+
+
+-- query 6
++----------------+----------+
+| Nation         | count(*) |
++----------------+----------+
+| FRANCE         |   246415 |
+| GERMANY        |   239064 |
+| ROMANIA        |   243962 |
+| RUSSIA         |   245236 |
+| UNITED KINGDOM |   237400 |
++----------------+----------+
+5 rows in set (1.15 sec)
+
+-- query 8
++----------+
+| count(*) |
++----------+
+|  1203959 |
++----------+
+1 row in set (0.86 sec)
